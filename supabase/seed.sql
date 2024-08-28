@@ -484,9 +484,8 @@ INSERT INTO public.fare_mapping ("program",fare,code) VALUES
 INSERT INTO public.route (departing,arriving) VALUES
                                                   (5,1),
                                                   (5,2),
-                                                  (1,2),
-                                                  (1,5),
                                                   (1,3),
+                                                  (1,5),
                                                   (1,4),
                                                   (1,9),
                                                   (1,6),
