@@ -32,7 +32,6 @@ function App() {
             <h1>Welcome to Point2Point</h1>
             {null == session && <GoogleAuth/>}
             {null != session && <Signout/>}
-            {null != user && user.role}
         </div>
     )
 }
