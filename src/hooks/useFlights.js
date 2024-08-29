@@ -4,22 +4,24 @@ import {
 import {supabase} from "../supabaseClient.js";
 
 const getFlights = async (search) => {
+    console.log('searching')
     const {data, error} = await supabase
         .from('reward_flight')
-        .select()
+        .select('*, route(*, arriving_airport:route_arriving_fkey(code), departing_airport:route_departing_fkey(code))')
         .gte('date', search.when)
+        .eq('route.departing_airport.code', search.from)
+        .eq('route.arriving_airport.code', search.to)
 
     if (error) {
         throw new Error(error.message)
     }
-    console.log(data)
 
     return data
 }
 
 export default function useFlights(search) {
     return useQuery({
-        queryKey: ['flights'],
+        queryKey: ['flights', search],
         queryFn: () => getFlights(search),
         enabled: !!search
     })

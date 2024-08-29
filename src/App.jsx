@@ -11,8 +11,6 @@ import {
     QueryClientProvider
 } from '@tanstack/react-query'
 import FlightSearch from "./components/FlightSearch.jsx";
-import useFlights from "./hooks/useFlights.js";
-import FlightTable from "./components/FlightTable.jsx";
 
 const queryClient = new QueryClient({
     defaultOptions: {
@@ -49,7 +47,6 @@ function App() {
                     {null == session && <GoogleAuth/>}
                     {null != session && <Signout/>}
                     <FlightSearch/>
-                    <FlightTable/>
                 </div>
             </QueryClientProvider>
         </MantineProvider>
