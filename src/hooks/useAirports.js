@@ -6,14 +6,17 @@ import {supabase} from "../supabaseClient.js";
 const getAirports = async () => {
     const {data, error} = await supabase
         .from('airport')
-        .select('code, city(name)')
+        .select('code, city(name, country(name))')
 
     if (error) {
         throw new Error(error.message)
     }
 
     return data.map(row => {
-        return `${row.city.name} (${row.code})`
+        return {
+            value: row.code,
+            label: `${row.code} (${row.city.name}, ${row.city.country.name})`
+        }
     })
 }
 

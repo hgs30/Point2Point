@@ -4,12 +4,15 @@ import {useEffect, useState} from "react";
 import {supabase} from "./supabaseClient.js";
 import Signout from "./components/auth/Signout.jsx";
 import '@mantine/core/styles.css';
+import '@mantine/dates/styles.css';
 import {MantineProvider} from '@mantine/core';
-import AirportAutocomplete from "./components/AirportAutocomplete.jsx";
 import {
     QueryClient,
     QueryClientProvider
 } from '@tanstack/react-query'
+import FlightSearch from "./components/FlightSearch.jsx";
+import useFlights from "./hooks/useFlights.js";
+import FlightTable from "./components/FlightTable.jsx";
 
 const queryClient = new QueryClient({
     defaultOptions: {
@@ -45,7 +48,8 @@ function App() {
                     <h1>Welcome to Point2Point</h1>
                     {null == session && <GoogleAuth/>}
                     {null != session && <Signout/>}
-                    <AirportAutocomplete/>
+                    <FlightSearch/>
+                    <FlightTable/>
                 </div>
             </QueryClientProvider>
         </MantineProvider>
