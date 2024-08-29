@@ -27,8 +27,7 @@ function FlightSearch() {
     const rows = flightQuery.data?.map((flight) => (
         <Table.Tr key={flight.id}>
             <Table.Td>{flight.points}</Table.Td>
-            <Table.Td>{flight.taxes}</Table.Td>
-            <Table.Td>{flight.currency}</Table.Td>
+            <Table.Td>{`${flight.currency.symbol}${flight.taxes}`}</Table.Td>
             <Table.Td>{flight.date}</Table.Td>
         </Table.Tr>
     ));
@@ -55,7 +54,6 @@ function FlightSearch() {
                 <Table.Tr>
                     <Table.Th>Points</Table.Th>
                     <Table.Th>Taxes</Table.Th>
-                    <Table.Th>Currency</Table.Th>
                     <Table.Th>Date</Table.Th>
                 </Table.Tr>
             </Table.Thead>
