@@ -49,7 +49,7 @@ function FlightSearch() {
         />
         <DateInput label={"When"} placeholder={"When"} value={when} onChange={setWhen}/>
         <Button variant="filled" color="green" size="md" onClick={onSearch}>Search</Button>
-        <Table>
+        <Table stickyHeader={true}>
             <Table.Thead>
                 <Table.Tr>
                     <Table.Th>Points</Table.Th>
