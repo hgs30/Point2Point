@@ -6,7 +6,7 @@ import {supabase} from "../supabaseClient.js";
 const getFlights = async (search) => {
     const {data, error} = await supabase
         .from('reward_flight')
-        .select('*, route!inner(arriving!inner(code), departing!inner(code)), currency(code)')
+        .select('*, route!inner(arriving!inner(code), departing!inner(code)), currency(code), fare(name)')
         .gte('date', search.when)
         .eq('route.departing.code', search.from)
         .eq('route.arriving.code', search.to)

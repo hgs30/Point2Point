@@ -29,6 +29,7 @@ function FlightSearch() {
             <Table.Td>{flight.points}</Table.Td>
             <Table.Td>{`${flight.taxes} ${flight.currency.code}`}</Table.Td>
             <Table.Td>{flight.date}</Table.Td>
+            <Table.Td>{flight.fare.name}</Table.Td>
         </Table.Tr>
     ));
 
@@ -55,6 +56,7 @@ function FlightSearch() {
                     <Table.Th>Points</Table.Th>
                     <Table.Th>Taxes</Table.Th>
                     <Table.Th>Date</Table.Th>
+                    <Table.Th>Fare</Table.Th>
                 </Table.Tr>
             </Table.Thead>
             <Table.Tbody>{rows}</Table.Tbody>
